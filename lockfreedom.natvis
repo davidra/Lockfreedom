@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <!-- cLockFreeStack -->
+  <Type Name="lockfree::cLockFreeStack&lt;*&gt;">
+    <DisplayString>{{ Size: {mCount._My_val} }}</DisplayString>
+    <Expand>
+      <!-- mCount only exists in diagnostic-enabled builds, so this visualizer won't work on other builds -->
+      <Item Name="[Size]" Optional="true">mCount._My_val</Item>
+      <LinkedListItems>
+        <Size Optional="true">mCount._My_val</Size>
+        <HeadPointer>(lockfree::detail::tLockFreeStackNode&lt;$T1&gt;*)(mTop._My_val.mPackedPtr&amp;0x0000FFFFFFFFFFFF)</HeadPointer>
+        <NextPointer>(lockfree::detail::tLockFreeStackNode&lt;$T1&gt;*)(mPrev.mPackedPtr&amp;0x0000FFFFFFFFFFFF)</NextPointer>
+        <ValueNode>mData</ValueNode>
+      </LinkedListItems>
+    </Expand>
+  </Type>
+
+  <!-- cLockFreeQueue -->
+  <Type Name="lockfree::cLockFreeQueue&lt;*&gt;">
+    <DisplayString>{{ Size: {mCount._My_val} }}</DisplayString>
+    <Expand>
+      <!-- mCount only exists in diagnostic-enabled builds, so this visualizer won't work on other builds -->
+      <Item Name="[Size]" Optional="true">mCount._My_val</Item>
+      <LinkedListItems>
+        <Size Optional="true">mCount._My_val</Size>
+        <HeadPointer>(lockfree::detail::tLockFreeQueueNode&lt;$T1&gt;*)(mFront._My_val.mPackedPtr&amp;0x0000FFFFFFFFFFFF)</HeadPointer>
+        <NextPointer>(lockfree::detail::tLockFreeQueueNode&lt;$T1&gt;*)(mPrev._My_val.mPackedPtr&amp;0x0000FFFFFFFFFFFF)</NextPointer>
+        <ValueNode>($T1)mData._Val</ValueNode>
+      </LinkedListItems>
+    </Expand>
+  </Type>
+
+  <!-- cMPSCLockFreeQueue -->
+  <Type Name="lockfree::cMPSCLockFreeQueue &lt;*&gt;">
+    <DisplayString>{{ Size: {mCount._My_val} }}</DisplayString>
+    <Expand>
+      <!-- mCount only exists in diagnostic-enabled builds, so this visualizer won't work on other builds -->
+      <Item Name="[Size]" Optional="true">mCount._My_val</Item>
+      <LinkedListItems>
+        <HeadPointer>(lockfree::detail::tMPSCLockFreeQueueNode&lt;$T1&gt;*)(mFront->mPrev._My_val)</HeadPointer>
+        <NextPointer>(lockfree::detail::tMPSCLockFreeQueueNode&lt;$T1&gt;*)(mPrev._My_val)</NextPointer>
+        <ValueNode>($T1)mData._Val</ValueNode>
+      </LinkedListItems>
+    </Expand>
+  </Type>
+
+  <!-- cTaggedPtr -->
+  <Type Name="lockfree::tTaggedPtr&lt;*&gt;">
+    <DisplayString>Ptr={($T1*)(mPackedPtr&amp;0x0000FFFFFFFFFFFF)} Tag={mTag}</DisplayString>
+    <Expand>
+      <Item Name="[Ptr]">($T1*)(mPackedPtr&amp;0x0000FFFFFFFFFFFF)</Item>
+      <Item Name="[Tag]">mTag</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>

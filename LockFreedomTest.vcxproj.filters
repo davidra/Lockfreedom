@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{8128aaef-f105-4bbb-8fce-a910e233f734}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external">
+      <UniqueIdentifier>{534dfc39-5326-429a-865c-0887f2202020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{a448a8a7-e524-4695-b970-997cf4722033}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tests.cpp" />
+    <ClCompile Include="src\debug.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\lockfree_pool.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\lockfree_queue.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\lockfree_stack.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="external\catch.hpp">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="include\atomic_defs.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tagged_ptr.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\debug.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="lockfreedom.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\lockfree_stack.inl">
+      <Filter>include</Filter>
+    </None>
+    <None Include="include\lockfree_queue.inl">
+      <Filter>include</Filter>
+    </None>
+    <None Include="include\lockfree_pool.inl">
+      <Filter>include</Filter>
+    </None>
+  </ItemGroup>
+</Project>
